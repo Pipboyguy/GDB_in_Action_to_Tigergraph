@@ -1,0 +1,10 @@
+CREATE VERTEX person_simple(
+	PRIMARY_ID first_name STRING,
+	first_name STRING
+)
+
+CREATE DIRECTED EDGE friends_simple (FROM person_simple, TO person_simple)
+
+CREATE GRAPH simplesocialnetwork (person_simple, friends_simple)
+
+

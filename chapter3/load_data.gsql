@@ -1,0 +1,13 @@
+# GSQL commands to define loading job
+
+USE GRAPH simplesocialnetwork
+CREATE LOADING JOB load_simple_social FOR GRAPH simplesocialnetwork{
+	DEFINE FILENAME ppl="/home/tigergraph/tutorial/3.x/ch3/people.csv";
+	DEFINE FILENAME f_fl="/home/tigergraph/tutorial/3.x/ch3/friends.csv";
+	
+	LOAD ppl TO VERTEX person_simple VALUES ($"first_name", $"first_name") USING header="true", separator=",";	
+	LOAD f_fl TO EDGE friends_simple VALUES ($0,$1) USING header="true", separator=",";	
+}
+
+
+
